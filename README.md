@@ -26,6 +26,11 @@ To verify that everything is working correctly:
    ```js
    await ai.canCreateTextSession()
    ```
+3. You should see:
+   ```js
+   'readily'
+   ```
+4. If you see other ouput you can navigate to `chrome://components`, look for "Optimization Guide on Device Mode" and click "Check for update". It might take some time for browser to download and enable the model, I left the browser for around an hour to do it's thing ;).
 
 ## Repository Contents
 
