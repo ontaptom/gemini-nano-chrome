@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome Nano - Gemini</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 10px;
+        }
+        input, button, #response {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+        button {
+            background: #0056b3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #response {
+            min-height: 100px;
+            border: 1px solid #ddd;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chrome Nano - Gemini</h1>
+    <input id="promptInput" placeholder="Enter your prompt here...">
+    <button id="submitButton">Generate</button>
+    <div id="response"></div>
+
+     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const promptInput = document.getElementById('promptInput');
+            const submitButton = document.getElementById('submitButton');
+            const responseDiv = document.getElementById('response');
+            submitButton.addEventListener('click', async () => {
+                const prompt = promptInput.value;
+                if (prompt) {
+                    try {
+                        responseDiv.textContent = 'Processing...';
+                        const session = await window.ai.createTextSession();
+                        const response = await session.prompt(prompt);
+                        responseDiv.textContent = response;
+                    } catch (error) {
+                        responseDiv.textContent = `Error: ${error.message}`;
+                    }
+                } else {
+                    responseDiv.textContent = 'Please enter a prompt';
+                }
+            });
+        });
+
+        promptInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') submitButton.click();
+        });
+    </script>
+</body>
+</html>

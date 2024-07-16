@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "Nano Explain",
+    "version": "1.0",
+    "description": "Adds 'nano explain' to the context menu to summarize selected text.",
+    "permissions": [
+        "contextMenus",
+        "activeTab",
+        "scripting"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    }
+}
+
