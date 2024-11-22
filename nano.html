@@ -46,7 +46,7 @@
                 if (prompt) {
                     try {
                         responseDiv.textContent = 'Processing...';
-                        const session = await window.ai.createTextSession();
+                        const session = await window.ai.languageModel.create();
                         const response = await session.prompt(prompt);
                         responseDiv.textContent = response;
                     } catch (error) {

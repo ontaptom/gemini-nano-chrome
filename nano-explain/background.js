@@ -25,7 +25,7 @@ async function summarizeText(prompt) {
         responseDiv.textContent = 'Processing...';
         document.body.appendChild(responseDiv);
 
-        const session = await window.ai.createTextSession();
+        const session = await window.ai.languageModel.create();
         const response = await session.prompt(prompt);
 
         responseDiv.textContent = response;

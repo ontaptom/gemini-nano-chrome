@@ -47,7 +47,7 @@
                 try {
                     responseDiv.textContent = 'Processing...';
                     submitButton.disabled = true;
-                    const session = await window.ai.createTextSession();
+                    const session = await window.ai.languageModel.create();
                     const stream = session.promptStreaming(prompt);
                     for await (const chunk of stream) {
                         responseDiv.textContent = chunk;
